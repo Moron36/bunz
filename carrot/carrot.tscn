@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cnbtm6oxdxprr"]
+
+[ext_resource type="Script" uid="uid://cxj7ckck1fchg" path="res://carrot/carrot.gd" id="1_54u62"]
+[ext_resource type="Texture2D" uid="uid://crc4hxwjx2c2j" path="res://carrot/carrot.png" id="2_wid3o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xd07"]
+radius = 40.0
+
+[node name="carrot" type="Area2D" unique_id=775161131]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_54u62")
+
+[node name="spri" type="Sprite2D" parent="." unique_id=1580449908]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_wid3o")
+
+[node name="col" type="CollisionShape2D" parent="." unique_id=1116730133]
+shape = SubResource("CircleShape2D_3xd07")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

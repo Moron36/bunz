@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://edvper3dcb4u"]
+
+[ext_resource type="Texture2D" uid="uid://cojldbw8reian" path="res://enemy1/eyedflesh.png" id="1_b1ftp"]
+[ext_resource type="Script" uid="uid://b74ekbvrjsnn1" path="res://enemy1/eyed.gd" id="1_ty4y6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xd07"]
+radius = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jq8tk"]
+radius = 24.0
+
+[node name="eyed" type="CharacterBody2D" unique_id=1046745254]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ty4y6")
+
+[node name="Eyedflesh" type="Sprite2D" parent="." unique_id=1941886314]
+texture = ExtResource("1_b1ftp")
+
+[node name="col" type="CollisionShape2D" parent="." unique_id=516324908]
+shape = SubResource("CircleShape2D_3xd07")
+
+[node name="bounc" type="Area2D" parent="." unique_id=66684639]
+
+[node name="col" type="CollisionShape2D" parent="bounc" unique_id=1354577133]
+shape = SubResource("CircleShape2D_jq8tk")
+
+[connection signal="body_entered" from="bounc" to="." method="_on_bounc_body_entered"]

@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://plkux0ufvrft"]
+
+[ext_resource type="Script" uid="uid://cba0m3v6dgf88" path="res://bunny/blackscreen.gd" id="1_61eda"]
+[ext_resource type="Texture2D" uid="uid://bl5tqo4wurvha" path="res://menu/eyedinmenu.png" id="2_jikax"]
+[ext_resource type="Texture2D" uid="uid://cud3orhcaexj8" path="res://menu/mainmenudude.png" id="3_bnhx1"]
+[ext_resource type="Script" uid="uid://cwsaqukknq22b" path="res://menu/play.gd" id="4_bnhx1"]
+[ext_resource type="Script" uid="uid://bc0b1ppb6gf7s" path="res://menu/pla2y.gd" id="4_vf4t8"]
+[ext_resource type="Texture2D" uid="uid://v8qhrmlv6q7j" path="res://menu/play.png" id="5_5t5w0"]
+[ext_resource type="Texture2D" uid="uid://ch4b6540cl6b8" path="res://menu/logo.png" id="6_5t5w0"]
+[ext_resource type="Script" uid="uid://bvaoh5mdg7b38" path="res://menu/exit.gd" id="6_nbski"]
+[ext_resource type="Texture2D" uid="uid://cj5gta7fgvigs" path="res://menu/exit.png" id="7_arib0"]
+[ext_resource type="Texture2D" uid="uid://8j1gb77r32fh" path="res://menu/solo.png" id="9_nvsu5"]
+[ext_resource type="Script" uid="uid://j2kqj4u01sxe" path="res://menu/versus.gd" id="10_vf4t8"]
+[ext_resource type="Texture2D" uid="uid://dly8rfq01s504" path="res://menu/versus.png" id="11_ks6g0"]
+
+[sub_resource type="Gradient" id="Gradient_61eda"]
+colors = PackedColorArray(0.2445786, 0.69891906, 0.5235344, 1, 0.04729125, 0.5609747, 0.24087131, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3xd07"]
+gradient = SubResource("Gradient_61eda")
+
+[sub_resource type="Gradient" id="Gradient_msb3c"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5t5w0"]
+gradient = SubResource("Gradient_msb3c")
+
+[node name="Node2D" type="Node2D" unique_id=800587852]
+
+[node name="back" type="Sprite2D" parent="." unique_id=995266533]
+unique_name_in_owner = true
+position = Vector2(0, -32)
+scale = Vector2(8.75, 1280)
+texture = SubResource("GradientTexture1D_3xd07")
+
+[node name="yes" type="Camera2D" parent="." unique_id=2043263618]
+zoom = Vector2(0.9, 0.9)
+
+[node name="Eyedinmenu" type="Sprite2D" parent="." unique_id=715652109]
+position = Vector2(256, 416)
+texture = ExtResource("2_jikax")
+
+[node name="Mainmenudude" type="Sprite2D" parent="." unique_id=237560254]
+position = Vector2(736, -32)
+texture = ExtResource("3_bnhx1")
+
+[node name="blackscreen" type="Sprite2D" parent="." unique_id=538723506]
+unique_name_in_owner = true
+visible = false
+show_behind_parent = true
+top_level = true
+z_index = 999
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(19.1875, 2864)
+texture = SubResource("GradientTexture1D_5t5w0")
+script = ExtResource("1_61eda")
+
+[node name="play" type="Button" parent="." unique_id=363035889]
+offset_left = -992.0
+offset_right = -544.0
+offset_bottom = 192.0
+flat = true
+script = ExtResource("4_vf4t8")
+
+[node name="Play" type="Sprite2D" parent="play" unique_id=917631666]
+position = Vector2(224, 96)
+texture = ExtResource("5_5t5w0")
+
+[node name="exit" type="Button" parent="." unique_id=391599417]
+offset_left = -992.0
+offset_top = 224.0
+offset_right = -544.0
+offset_bottom = 416.0
+flat = true
+script = ExtResource("6_nbski")
+
+[node name="Play" type="Sprite2D" parent="exit" unique_id=1417066607]
+position = Vector2(224, 96)
+texture = ExtResource("7_arib0")
+
+[node name="Logo" type="Sprite2D" parent="." unique_id=567366010]
+position = Vector2(-480, -320)
+scale = Vector2(1.3844221, 1.3844221)
+texture = ExtResource("6_5t5w0")
+
+[node name="single_multi" type="Node2D" parent="." unique_id=263387612]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-128, 0)
+
+[node name="solo" type="Button" parent="single_multi" unique_id=1958364209]
+offset_left = -384.0
+offset_top = 32.0
+offset_right = -128.0
+offset_bottom = 160.0
+flat = true
+script = ExtResource("4_bnhx1")
+
+[node name="Play" type="Sprite2D" parent="single_multi/solo" unique_id=616070215]
+position = Vector2(128, 64)
+texture = ExtResource("9_nvsu5")
+
+[node name="versus" type="Button" parent="single_multi" unique_id=105064996]
+offset_left = -384.0
+offset_top = 224.0
+offset_right = -128.0
+offset_bottom = 352.0
+flat = true
+script = ExtResource("10_vf4t8")
+
+[node name="Play" type="Sprite2D" parent="single_multi/versus" unique_id=190163057]
+position = Vector2(128, 64)
+texture = ExtResource("11_ks6g0")
+
+[connection signal="mouse_entered" from="play" to="play" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="play" to="play" method="_on_mouse_exited"]
+[connection signal="pressed" from="play" to="play" method="_on_pressed"]
+[connection signal="mouse_entered" from="exit" to="exit" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="exit" to="exit" method="_on_mouse_exited"]
+[connection signal="pressed" from="exit" to="exit" method="_on_pressed"]
+[connection signal="mouse_entered" from="single_multi/solo" to="single_multi/solo" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="single_multi/solo" to="single_multi/solo" method="_on_mouse_exited"]
+[connection signal="pressed" from="single_multi/solo" to="single_multi/solo" method="_on_pressed"]
+[connection signal="mouse_entered" from="single_multi/versus" to="single_multi/versus" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="single_multi/versus" to="single_multi/versus" method="_on_mouse_exited"]
+[connection signal="pressed" from="single_multi/versus" to="single_multi/versus" method="_on_pressed"]

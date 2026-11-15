@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://6r13ui6wmryt"]
+
+[ext_resource type="Texture2D" uid="uid://byoscegxly46s" path="res://enemy2/crosseye.png" id="1_4f1ob"]
+[ext_resource type="Script" uid="uid://u1friw2fo6c0" path="res://enemy2/turret.gd" id="1_mgnh6"]
+[ext_resource type="AudioStream" uid="uid://c6dcafvr1wpj" path="res://sounds/fleshshoot.ogg" id="3_5es1o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xd07"]
+radius = 70.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgnh6"]
+size = Vector2(228, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4f1ob"]
+size = Vector2(216, 64)
+
+[node name="turret" type="StaticBody2D" unique_id=394238137]
+z_index = 1
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_mgnh6")
+
+[node name="Crosseye" type="Sprite2D" parent="." unique_id=980852929]
+texture = ExtResource("1_4f1ob")
+
+[node name="col" type="CollisionShape2D" parent="." unique_id=61221838]
+shape = SubResource("CircleShape2D_3xd07")
+
+[node name="col2" type="CollisionShape2D" parent="." unique_id=1778614172]
+shape = SubResource("RectangleShape2D_mgnh6")
+
+[node name="col3" type="CollisionShape2D" parent="." unique_id=2055967966]
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_4f1ob")
+
+[node name="shoot" type="AudioStreamPlayer2D" parent="." unique_id=1559426294]
+stream = ExtResource("3_5es1o")
+volume_db = -8.0
+max_distance = 1800.0
+attenuation = 0.7578584

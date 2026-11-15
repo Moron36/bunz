@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://i26slckaa2ik"]
+
+[ext_resource type="Texture2D" uid="uid://5b7c3dimf36w" path="res://bunny/smoke.png" id="1_oj30m"]
+[ext_resource type="Script" uid="uid://c5n2knpddy8di" path="res://carrot/carrotget.gd" id="2_cptls"]
+
+[sub_resource type="Curve" id="Curve_cptls"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.28444445, 0.6292135), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_msb3c"]
+curve = SubResource("Curve_cptls")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f8nsu"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 0, 1)
+direction = Vector3(0, -1, 0)
+spread = 70.0
+initial_velocity_min = 185.22
+initial_velocity_max = 301.81
+angular_velocity_min = -363.5
+angular_velocity_max = 138.45998
+gravity = Vector3(0, 980, 0)
+alpha_curve = SubResource("CurveTexture_msb3c")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.17
+
+[node name="smoke" type="GPUParticles2D" unique_id=2012340420]
+z_index = -3
+emitting = false
+amount = 50
+texture = ExtResource("1_oj30m")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_f8nsu")
+script = ExtResource("2_cptls")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

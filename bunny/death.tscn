@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://co33mv1cjf8vy"]
+
+[ext_resource type="Texture2D" uid="uid://bj5qrcduuv8gt" path="res://bunny/flesh.png" id="1_s8o1e"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s8o1e"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 783.0
+spread = 180.0
+initial_velocity_max = 240.37999
+gravity = Vector3(0, 300, 0)
+scale_min = 0.34
+scale_max = 0.42999998
+
+[node name="death" type="GPUParticles2D" unique_id=1185795973]
+top_level = true
+z_index = 30
+amount = 100
+texture = ExtResource("1_s8o1e")
+lifetime = 3.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_s8o1e")
