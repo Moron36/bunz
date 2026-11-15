@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://df4752bor6obs"]
+
+[ext_resource type="Texture2D" uid="uid://bnesihyfhed7x" path="res://william/wiliamwin.png" id="1_kw32e"]
+[ext_resource type="Script" uid="uid://cba0m3v6dgf88" path="res://bunny/blackscreen.gd" id="2_vsxoj"]
+[ext_resource type="Script" uid="uid://bm06ncrdk1af" path="res://shop/but.gd" id="3_tj6go"]
+[ext_resource type="Texture2D" uid="uid://be7o7c4yo0384" path="res://menu/main menu.png" id="4_q042o"]
+
+[sub_resource type="Gradient" id="Gradient_vsxoj"]
+colors = PackedColorArray(0.3254902, 0, 0, 1, 0.5594236, 0, 0.008198544, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3xd07"]
+gradient = SubResource("Gradient_vsxoj")
+
+[sub_resource type="Gradient" id="Gradient_v7vtx"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6rweo"]
+gradient = SubResource("Gradient_v7vtx")
+
+[sub_resource type="LabelSettings" id="LabelSettings_3xd07"]
+font_size = 72
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D" unique_id=622182544]
+
+[node name="a" type="Sprite2D" parent="." unique_id=2099808697]
+position = Vector2(3.2424927e-05, 0)
+scale = Vector2(7.75, 1088)
+texture = SubResource("GradientTexture1D_3xd07")
+
+[node name="Wiliamwin" type="Sprite2D" parent="." unique_id=132840071]
+position = Vector2(-208, 160)
+texture = ExtResource("1_kw32e")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2076888949]
+
+[node name="blackscreen" type="Sprite2D" parent="." unique_id=111507005]
+unique_name_in_owner = true
+visible = false
+show_behind_parent = true
+top_level = true
+z_index = 999
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(19.1875, 2864)
+texture = SubResource("GradientTexture1D_6rweo")
+script = ExtResource("2_vsxoj")
+
+[node name="A" type="Label" parent="." unique_id=378704471]
+offset_left = -784.0
+offset_top = -448.0
+offset_right = 47.0
+offset_bottom = -349.0
+text = "The meatball thing won!"
+label_settings = SubResource("LabelSettings_3xd07")
+
+[node name="but" type="Button" parent="." unique_id=1411311416]
+offset_left = 464.0
+offset_top = 352.0
+offset_right = 912.0
+offset_bottom = 504.0
+flat = true
+script = ExtResource("3_tj6go")
+
+[node name="MainMenu" type="Sprite2D" parent="but" unique_id=602411637]
+position = Vector2(232, 80)
+texture = ExtResource("4_q042o")
+
+[connection signal="mouse_entered" from="but" to="but" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="but" to="but" method="_on_mouse_exited"]
+[connection signal="pressed" from="but" to="but" method="_on_pressed"]

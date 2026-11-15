@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://moufi5qtj3w8"]
+
+[ext_resource type="Script" uid="uid://cdo2nqjeqjhkl" path="res://william/william.gd" id="1_rb6ax"]
+[ext_resource type="Texture2D" uid="uid://dw4j3sgmw1hv5" path="res://william/william.png" id="1_uplyl"]
+[ext_resource type="Script" uid="uid://d1nvol5msulwd" path="res://william/oda.gd" id="3_iopuh"]
+[ext_resource type="Script" uid="uid://d0gjqb5rdw6ex" path="res://william/carrot.gd" id="4_ydl3r"]
+[ext_resource type="Texture2D" uid="uid://cpcywfwdle8kx" path="res://carrot/minicarrote.png" id="5_jilly"]
+[ext_resource type="AudioStream" uid="uid://du2pwqcae5hj0" path="res://sounds/carot.ogg" id="6_ydl3r"]
+[ext_resource type="AudioStream" uid="uid://ckvs2j68plqp5" path="res://sounds/poor.ogg" id="7_psr2y"]
+[ext_resource type="AudioStream" uid="uid://b5ggp7hd5p7id" path="res://sounds/bought.ogg" id="8_x7ybe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xd07"]
+radius = 24.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_psr2y"]
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_onrkg"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_psr2y"]
+gradient = SubResource("Gradient_onrkg")
+
+[sub_resource type="Gradient" id="Gradient_4flbx"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_x7ybe"]
+gradient = SubResource("Gradient_4flbx")
+
+[sub_resource type="Gradient" id="Gradient_i3pqv"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b8brc"]
+gradient = SubResource("Gradient_i3pqv")
+
+[node name="William" type="CharacterBody2D" unique_id=1048657896]
+z_index = 10
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_rb6ax")
+
+[node name="William" type="Sprite2D" parent="." unique_id=1093694766]
+scale = Vector2(0.50000006, 0.5)
+texture = ExtResource("1_uplyl")
+
+[node name="col" type="CollisionShape2D" parent="." unique_id=1161078603]
+shape = SubResource("CircleShape2D_3xd07")
+
+[node name="oda" type="Node2D" parent="." unique_id=1827932266]
+position = Vector2(0, -96)
+script = ExtResource("3_iopuh")
+
+[node name="carrot" type="Label" parent="oda" unique_id=460386364]
+offset_left = -56.0
+offset_top = 8.0
+offset_right = 17.0
+offset_bottom = 53.0
+text = "000"
+label_settings = SubResource("LabelSettings_psr2y")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_ydl3r")
+metadata/_edit_use_anchors_ = true
+
+[node name="Minicarrote" type="TextureRect" parent="oda" unique_id=1118059383]
+offset_left = 8.0
+offset_right = 72.0
+offset_bottom = 64.0
+texture = ExtResource("5_jilly")
+metadata/_edit_use_anchors_ = true
+
+[node name="mon" type="AudioStreamPlayer" parent="." unique_id=1869164988]
+stream = ExtResource("6_ydl3r")
+volume_db = -12.0
+
+[node name="bad" type="AudioStreamPlayer" parent="." unique_id=1738906608]
+stream = ExtResource("7_psr2y")
+volume_db = -10.0
+
+[node name="place" type="AudioStreamPlayer" parent="." unique_id=8662173]
+stream = ExtResource("8_x7ybe")
+volume_db = -12.0
+
+[node name="bar" type="Sprite2D" parent="." unique_id=1056225563]
+top_level = true
+z_index = 10
+position = Vector2(0, 48)
+scale = Vector2(0.75, 16)
+texture = SubResource("GradientTexture1D_psr2y")
+
+[node name="over" type="Sprite2D" parent="bar" unique_id=909685263]
+position = Vector2(4.7683716e-07, 0)
+scale = Vector2(1e-05, 1)
+texture = SubResource("GradientTexture1D_x7ybe")
+
+[node name="outline" type="Sprite2D" parent="bar" unique_id=1830046920]
+show_behind_parent = true
+scale = Vector2(1.03, 1.35)
+texture = SubResource("GradientTexture1D_b8brc")

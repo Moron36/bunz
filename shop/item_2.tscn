@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://shfsyk5nqqtv"]
+
+[ext_resource type="Texture2D" uid="uid://d4gtfh2dqw0k3" path="res://shop/gluttondream.png" id="1_ce7yv"]
+[ext_resource type="Script" uid="uid://b2ctxjtms3swm" path="res://shop/buy.gd" id="2_7g2uy"]
+[ext_resource type="AudioStream" uid="uid://ckvs2j68plqp5" path="res://sounds/poor.ogg" id="3_oqw3t"]
+
+[sub_resource type="Gradient" id="Gradient_tumlm"]
+colors = PackedColorArray(0.5489626, 0.5489626, 0.54896253, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jq8tk"]
+gradient = SubResource("Gradient_tumlm")
+
+[sub_resource type="Gradient" id="Gradient_mwkud"]
+colors = PackedColorArray(0.6090404, 0.35936114, 0.74918705, 1, 0.46075052, 0.002010229, 0.71930164, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3xd07"]
+gradient = SubResource("Gradient_mwkud")
+
+[sub_resource type="Gradient" id="Gradient_hmg8y"]
+colors = PackedColorArray(0.69378674, 0.7384809, 0.7945301, 1, 0.80804074, 0.7005197, 0.99375004, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qsjac"]
+gradient = SubResource("Gradient_hmg8y")
+
+[sub_resource type="LabelSettings" id="LabelSettings_qn3et"]
+font_size = 32
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ch414"]
+font_size = 22
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hmg8y"]
+font_size = 22
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_qn3et"]
+colors = PackedColorArray(0.41929996, 0.7777467, 0.40435728, 1, 0.7219553, 0.98013335, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6fhyq"]
+gradient = SubResource("Gradient_qn3et")
+
+[sub_resource type="LabelSettings" id="LabelSettings_3xd07"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="card" type="Node2D" unique_id=1211404025]
+
+[node name="outline" type="Sprite2D" parent="." unique_id=2033917996]
+position = Vector2(0, 1.5258789e-05)
+scale = Vector2(1, 384)
+texture = SubResource("GradientTexture1D_jq8tk")
+
+[node name="back" type="Sprite2D" parent="." unique_id=1891832173]
+position = Vector2(-5.722046e-06, 3.5762787e-06)
+scale = Vector2(0.96874994, 375.99997)
+texture = SubResource("GradientTexture1D_3xd07")
+
+[node name="outline3" type="Sprite2D" parent="." unique_id=1772103815]
+position = Vector2(2.861023e-06, -79.99999)
+scale = Vector2(0.625, 160.00003)
+texture = SubResource("GradientTexture1D_jq8tk")
+
+[node name="outline2" type="Sprite2D" parent="." unique_id=1502981202]
+position = Vector2(2.861023e-06, -79.99999)
+scale = Vector2(0.59375, 152)
+texture = SubResource("GradientTexture1D_qsjac")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=130246985]
+position = Vector2(0, -80.00001)
+scale = Vector2(0.81632656, 0.8163265)
+texture = ExtResource("1_ce7yv")
+
+[node name="title" type="Label" parent="." unique_id=2060007361]
+offset_left = -120.0
+offset_right = 121.0
+offset_bottom = 45.0
+text = "Carrotorrac"
+label_settings = SubResource("LabelSettings_qn3et")
+horizontal_alignment = 1
+
+[node name="desc" type="Label" parent="." unique_id=1868923514]
+offset_left = -120.0
+offset_top = 44.0
+offset_right = 121.0
+offset_bottom = 89.0
+text = "The carrots have
+fused."
+label_settings = SubResource("LabelSettings_ch414")
+horizontal_alignment = 1
+
+[node name="effect" type="Label" parent="." unique_id=2120189236]
+offset_left = -120.0
+offset_top = 112.0
+offset_right = 121.0
+offset_bottom = 177.0
+text = "+1 carrot per carrot"
+label_settings = SubResource("LabelSettings_hmg8y")
+horizontal_alignment = 1
+
+[node name="glutton" type="Button" parent="." unique_id=1980415467]
+offset_left = -80.0
+offset_top = 148.0
+offset_right = 80.0
+offset_bottom = 180.0
+flat = true
+script = ExtResource("2_7g2uy")
+
+[node name="bac" type="Sprite2D" parent="glutton" unique_id=1803886800]
+position = Vector2(80, 16)
+scale = Vector2(0.62499994, 27.99999)
+texture = SubResource("GradientTexture1D_6fhyq")
+
+[node name="cost" type="Label" parent="glutton" unique_id=1651053806]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 152.0
+offset_bottom = 27.0
+text = "Buy for 10 carrots"
+label_settings = SubResource("LabelSettings_3xd07")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="not" type="AudioStreamPlayer" parent="glutton" unique_id=846746408]
+stream = ExtResource("3_oqw3t")
+volume_db = -10.0
+
+[connection signal="mouse_entered" from="glutton" to="glutton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="glutton" to="glutton" method="_on_mouse_exited"]
+[connection signal="pressed" from="glutton" to="glutton" method="_on_pressed"]

@@ -1,0 +1,21 @@
+[gd_resource type="TileSet" format=3 uid="uid://dtd3yxoshyox0"]
+
+[ext_resource type="Texture2D" uid="uid://jcahfyywl238" path="res://tiles/spikes.png" id="1_3j15e"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vagae"]
+texture = ExtResource("1_3j15e")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, -32, -64, -32, 64, -64, 64)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, -32, -64, -32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 32, 64, 32, 64, 64, -64, 64)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, -64, 64, -64, 64, 64, 32, 64)
+
+[resource]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
+sources/0 = SubResource("TileSetAtlasSource_vagae")

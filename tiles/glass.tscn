@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bxmqyy0m318x2"]
+
+[ext_resource type="Texture2D" uid="uid://bc8xauv8u78u0" path="res://tiles/break1.png" id="1_cvucn"]
+[ext_resource type="Script" uid="uid://cpxf5cnpql1m5" path="res://tiles/glass.gd" id="1_mpmhw"]
+[ext_resource type="Texture2D" uid="uid://cyoo7mmrsgmwo" path="res://tiles/break2.png" id="2_mpmhw"]
+[ext_resource type="Texture2D" uid="uid://duafh5raje2ru" path="res://tiles/break3.png" id="3_7b55o"]
+[ext_resource type="AudioStream" uid="uid://cq2j6mmluy26o" path="res://sounds/breaklit.ogg" id="5_7b55o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xd07"]
+size = Vector2(128, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jq8tk"]
+size = Vector2(128, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3xd07"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cvucn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mpmhw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7b55o")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="glasstile" type="StaticBody2D" unique_id=1754950600]
+script = ExtResource("1_mpmhw")
+
+[node name="col" type="CollisionShape2D" parent="." unique_id=1591339559]
+shape = SubResource("RectangleShape2D_3xd07")
+
+[node name="ar" type="Area2D" parent="." unique_id=873813155]
+scale = Vector2(1.01, 1.01)
+
+[node name="col" type="CollisionShape2D" parent="ar" unique_id=580138337]
+shape = SubResource("RectangleShape2D_jq8tk")
+
+[node name="spr" type="AnimatedSprite2D" parent="." unique_id=988367992]
+modulate = Color(0.61303407, 0.7596764, 1, 1)
+sprite_frames = SubResource("SpriteFrames_3xd07")
+
+[node name="sad" type="AudioStreamPlayer" parent="." unique_id=1961850599]
+stream = ExtResource("5_7b55o")
+volume_db = -10.0
+
+[connection signal="body_entered" from="ar" to="." method="_on_ar_body_entered"]
+[connection signal="body_exited" from="ar" to="." method="_on_ar_body_exited"]
+[connection signal="frame_changed" from="spr" to="." method="_on_spr_frame_changed"]

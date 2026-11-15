@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cxhwgqyhymu8b"]
+
+[ext_resource type="Texture2D" uid="uid://c454031txy47l" path="res://tiles/saw.png" id="1_l0i72"]
+[ext_resource type="Script" uid="uid://bxh8ufthokpg8" path="res://tiles/saw.gd" id="2_ra4r5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xd07"]
+radius = 96.0
+
+[node name="saw" type="Area2D" unique_id=330400586]
+z_index = -1
+collision_layer = 2
+collision_mask = 2
+
+[node name="Saw" type="Sprite2D" parent="." unique_id=1312266411]
+texture = ExtResource("1_l0i72")
+script = ExtResource("2_ra4r5")
+
+[node name="col" type="CollisionShape2D" parent="." unique_id=493185155]
+shape = SubResource("CircleShape2D_3xd07")

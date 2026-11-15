@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://b4kxlu2q4wkj4"]
+
+[ext_resource type="Script" uid="uid://bcs6qsa4sf6m3" path="res://shop/shop2.gd" id="1_ljlg5"]
+[ext_resource type="Script" uid="uid://cba0m3v6dgf88" path="res://bunny/blackscreen.gd" id="1_r2p71"]
+[ext_resource type="Texture2D" uid="uid://cblqdbo4eoaps" path="res://bunny/bigbunny.png" id="2_sxvro"]
+[ext_resource type="Texture2D" uid="uid://dbub8jvtlo2j6" path="res://shop/shop.png" id="3_mrnko"]
+[ext_resource type="Script" uid="uid://b8wh7ma3rgd7k" path="res://shop/shop.gd" id="4_gy7ao"]
+[ext_resource type="Script" uid="uid://dev0e7mopp2r7" path="res://bunny/carrot.gd" id="5_q4g17"]
+[ext_resource type="Texture2D" uid="uid://cpcywfwdle8kx" path="res://carrot/minicarrote.png" id="6_2wf2a"]
+[ext_resource type="Script" uid="uid://cmcg8uv4yabit" path="res://shop/text_2.gd" id="7_mmyc1"]
+[ext_resource type="Texture2D" uid="uid://b4872v5tnoo5m" path="res://shop/BOUNCEBACK.png" id="8_xad5q"]
+[ext_resource type="Script" uid="uid://4apghcenaguq" path="res://shop/return.gd" id="9_ljlg5"]
+[ext_resource type="Texture2D" uid="uid://chtypuykxq2du" path="res://shop/bunz.png" id="10_bv5vx"]
+[ext_resource type="Script" uid="uid://bm06ncrdk1af" path="res://shop/but.gd" id="12_cd0xb"]
+[ext_resource type="Texture2D" uid="uid://be7o7c4yo0384" path="res://menu/main menu.png" id="13_yrv44"]
+
+[sub_resource type="Gradient" id="Gradient_mm5ua"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sxvro"]
+gradient = SubResource("Gradient_mm5ua")
+
+[sub_resource type="Gradient" id="Gradient_givde"]
+colors = PackedColorArray(0.27163503, 0.13755208, 0.23222601, 1, 1, 0, 0.5647059, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3xd07"]
+gradient = SubResource("Gradient_givde")
+fill_to = Vector2(1, 0.991453)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3xd07"]
+font_size = 64
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_bv5vx"]
+colors = PackedColorArray(0.15847239, 0.1584723, 0.15847224, 1, 0.24115604, 0.24115604, 0.24115604, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mmyc1"]
+gradient = SubResource("Gradient_bv5vx")
+
+[node name="shop" type="Node2D" unique_id=1917358807]
+script = ExtResource("1_ljlg5")
+
+[node name="blackscreen" type="Sprite2D" parent="." unique_id=304816671]
+unique_name_in_owner = true
+visible = false
+show_behind_parent = true
+top_level = true
+z_index = 999
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(19.1875, 2864)
+texture = SubResource("GradientTexture1D_sxvro")
+script = ExtResource("1_r2p71")
+
+[node name="cam" type="Camera2D" parent="." unique_id=1399526426]
+
+[node name="Bigbunny" type="Sprite2D" parent="." unique_id=110678228]
+position = Vector2(624, 96)
+texture = ExtResource("2_sxvro")
+
+[node name="BACKGROUND" type="Sprite2D" parent="." unique_id=1334933807]
+z_index = -16
+position = Vector2(-8.0000305, -20)
+scale = Vector2(31, 17.875)
+texture = SubResource("GradientTexture2D_3xd07")
+
+[node name="Shop" type="Sprite2D" parent="." unique_id=1663996660]
+position = Vector2(-496, -392)
+texture = ExtResource("3_mrnko")
+script = ExtResource("4_gy7ao")
+
+[node name="text" type="Label" parent="." unique_id=1303679200]
+offset_left = -960.0
+offset_top = 448.0
+offset_right = -814.0
+offset_bottom = 536.0
+text = "000"
+label_settings = SubResource("LabelSettings_3xd07")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_q4g17")
+
+[node name="text2" type="Label" parent="." unique_id=224605710]
+offset_left = -944.0
+offset_top = -168.0
+offset_right = -358.0
+offset_bottom = -80.0
+text = "Max height: 1000m"
+label_settings = SubResource("LabelSettings_3xd07")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("7_mmyc1")
+
+[node name="Minicarrote" type="Sprite2D" parent="." unique_id=1013263015]
+position = Vector2(-792, 496)
+texture = ExtResource("6_2wf2a")
+
+[node name="return" type="Button" parent="." unique_id=1529280336]
+offset_left = -664.0
+offset_top = 360.0
+offset_right = 244.0
+offset_bottom = 555.0
+icon = ExtResource("8_xad5q")
+flat = true
+script = ExtResource("9_ljlg5")
+
+[node name="yes1" type="Sprite2D" parent="." unique_id=158794630]
+position = Vector2(-768, 128)
+scale = Vector2(1, 384)
+texture = SubResource("GradientTexture1D_mmyc1")
+
+[node name="yes2" type="Sprite2D" parent="." unique_id=1455613645]
+position = Vector2(-480, 128)
+scale = Vector2(1, 384)
+texture = SubResource("GradientTexture1D_mmyc1")
+
+[node name="yes3" type="Sprite2D" parent="." unique_id=1953354948]
+position = Vector2(-192, 128)
+scale = Vector2(1, 384)
+texture = SubResource("GradientTexture1D_mmyc1")
+
+[node name="Bunz" type="Sprite2D" parent="." unique_id=116550678]
+position = Vector2(472, -336)
+texture = ExtResource("10_bv5vx")
+
+[node name="but" type="Button" parent="." unique_id=981392500]
+offset_left = 512.0
+offset_top = 384.0
+offset_right = 960.0
+offset_bottom = 536.0
+flat = true
+script = ExtResource("12_cd0xb")
+
+[node name="MainMenu" type="Sprite2D" parent="but" unique_id=1528566351]
+position = Vector2(232, 80)
+texture = ExtResource("13_yrv44")
+
+[connection signal="mouse_entered" from="return" to="return" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="return" to="return" method="_on_mouse_exited"]
+[connection signal="pressed" from="return" to="return" method="_on_pressed"]
+[connection signal="mouse_entered" from="but" to="but" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="but" to="but" method="_on_mouse_exited"]
+[connection signal="pressed" from="but" to="but" method="_on_pressed"]
