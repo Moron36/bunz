@@ -36,7 +36,7 @@ func generate():
 		#map.get_child(0).queue_free()
 
 func _ready() -> void:
-	for i in 6:
+	for i in 8:
 		generate()
 	wingn()
 
