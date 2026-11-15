@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var dir :=Vector2()
-var power:=1
+var power:=0
 var col:=false
 func caching():
 	if power<5:
@@ -9,8 +9,8 @@ func caching():
 		power+=1
 func place3():
 	if col==false:
-		if power>=5 and abs((%plr.global_position-global_position).length())>350:
-			power-=5
+		if power>=3 and abs((%plr.global_position-global_position).length())>350:
+			power-=3
 			$place.play()
 			col=true
 			var b = load("res://enemy2/turret.tscn").instantiate()
@@ -22,8 +22,8 @@ func place3():
 		$bad.play()
 func place2():
 	if col==false:
-		if power>=2 and abs((%plr.global_position-global_position).length())>350:
-			power-=2
+		if power>=1 and abs((%plr.global_position-global_position).length())>350:
+			power-=1
 			$place.play()
 			col=true
 			var b = load("res://enemy1/eyed.tscn").instantiate()
@@ -35,8 +35,8 @@ func place2():
 		$bad.play()
 func place1():
 	if col==false:
-		if power>=2 and abs((%plr.global_position-global_position).length())>350:
-			power-=2
+		if power>=1 and abs((%plr.global_position-global_position).length())>350:
+			power-=1
 			$place.play()
 			col=true
 			var b = load("res://tiles/saw.tscn").instantiate()

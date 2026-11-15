@@ -1,6 +1,6 @@
 extends Node
 var money:=0
-var doubl:=10
+var doubl:=0
 var max:=1.5
 var slip:=0.9
 var dif:=0
@@ -10,7 +10,7 @@ var height:=0
 var carot:=1
 func reset():
 	money=0
-	doubl=10
+	doubl=0
 	max=1.5
 	slip=0.9
 	dif=0
